@@ -15,7 +15,7 @@ func (a Almacen) buscarProducto(buscadorProducto string) {
 			found = true
 
 			fmt.Println("Producto encontrado en el almacen, posicion:", i+1)
-			a[i].imprimir()
+			a[i].presentacion()
 			fmt.Println()
 
 		}

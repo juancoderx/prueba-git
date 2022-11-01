@@ -80,7 +80,7 @@ func main() {
 				break
 			}
 
-			listadoAlmacenes[numAlmacen].imprimir()
+			fmt.Println(listadoAlmacenes[numAlmacen].presentacion())
 
 		case 3:
 			var (
