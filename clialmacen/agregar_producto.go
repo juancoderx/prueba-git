@@ -1,3 +1,7 @@
+package main
+
+import "strings"
+
 func (a *Almacen) agregarProductos(p Producto) {
 	p.nombre = strings.ToLower(p.nombre)
 	p.marca = strings.ToLower(p.marca)

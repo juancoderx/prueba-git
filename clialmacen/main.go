@@ -3,20 +3,7 @@ package main
 import (
 	"fmt"
 	"strconv"
-	"strings"
 )
-
-
-
-
-
-
-
-
-
-
-
-
 
 func main() {
 	var listadoAlmacenes []Almacen
