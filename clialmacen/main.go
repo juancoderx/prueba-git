@@ -16,7 +16,7 @@ func main() {
 
 		fmt.Println("1.Ingresar producto")
 		fmt.Println("2.Imprimir Almacen")
-		fmt.Println("3.Buscar producto")
+		fmt.Println("3.Buscar productos")
 		fmt.Println("4.Actualizar producto")
 		fmt.Println("5.Eliminar producto")
 		fmt.Println("6.Crear inventario")
