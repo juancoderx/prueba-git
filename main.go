@@ -102,7 +102,13 @@ func main() {
 				break
 			}
 
-			listadoAlmacenes[numAlmacen].buscarProducto(searchProduct)
+			if listadoAlmacenes[numAlmacen].buscarProducto(searchProduct) == nil {
+				fmt.Println("No se encontraron productos")
+
+				break
+			}
+
+			fmt.Println(listadoAlmacenes[numAlmacen].presentacion())
 
 		case 4:
 			var (
@@ -124,6 +130,12 @@ func main() {
 				break
 			}
 
+			if !listadoAlmacenes[numAlmacen].actualizarProducto(editProduct) {
+				fmt.Println("No se encontro el producto a actualizar")
+
+				break
+			}
+
 			fmt.Println("Ingrese marca")
 			fmt.Print(">")
 			fmt.Scan(&editProduct.marca)
@@ -136,7 +148,7 @@ func main() {
 			fmt.Print(">")
 			fmt.Scan(&editProduct.unidades)
 
-			listadoAlmacenes[numAlmacen].actualizarProducto(editProduct)
+			fmt.Println(listadoAlmacenes[numAlmacen].actualizarProducto(editProduct))
 
 		case 5:
 			var (
@@ -162,7 +174,13 @@ func main() {
 				break
 			}
 
-			listadoAlmacenes[numAlmacen].eliminarProducto(eliminarNombre, eliminarMarca)
+			if !listadoAlmacenes[numAlmacen].eliminarProducto(eliminarNombre, eliminarMarca) {
+				fmt.Println("Producto a eliminar, no encontrado")
+
+				break
+			}
+
+			fmt.Println(listadoAlmacenes[numAlmacen].eliminarProducto(eliminarNombre, eliminarMarca))
 
 		case 6:
 			listadoAlmacenes = append(listadoAlmacenes, Almacen{})
