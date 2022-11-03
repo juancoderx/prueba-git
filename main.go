@@ -102,13 +102,17 @@ func main() {
 				break
 			}
 
-			if listadoAlmacenes[numAlmacen].buscarProducto(searchProduct) == nil {
+			infoProducto := listadoAlmacenes[numAlmacen].buscarProducto(searchProduct)
+
+			if len(infoProducto) == 0 {
 				fmt.Println("No se encontraron productos")
 
 				break
 			}
 
-			fmt.Println(listadoAlmacenes[numAlmacen].presentacion())
+			for i := 0; i < len(infoProducto); i++ {
+				fmt.Println(infoProducto[i].presentacion())
+			}
 
 		case 4:
 			var (

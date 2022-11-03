@@ -9,11 +9,7 @@ func (a Almacen) buscarProducto(buscadorProducto string) (productos []Producto) 
 
 	for i := 0; i < len(a); i++ {
 		if a[i].nombre == buscadorProducto {
-			a[i].presentacion()
-
 			productos = append(productos, a[i])
-
-			return productos
 		}
 	}
 	return productos
