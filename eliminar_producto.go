@@ -9,12 +9,12 @@ func (a *Almacen) eliminarProducto(eliminarNombre, eliminarMarca string) (exist 
 	eliminarMarca = strings.ToLower(eliminarMarca)
 
 	for i := 0; i < len(*a); i++ {
-		exist = true
-
 		if (*a)[i].nombre == eliminarNombre && (*a)[i].marca == eliminarMarca {
 			*a = append((*a)[:i], (*a)[i+1:]...)
+
+			return true
 		}
 	}
 
-	return !exist
+	return false
 }

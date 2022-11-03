@@ -134,7 +134,7 @@ func main() {
 				break
 			}
 
-			if !listadoAlmacenes[numAlmacen].actualizarProducto(editProduct) {
+			if exist := listadoAlmacenes[numAlmacen].actualizarProducto(editProduct); !exist {
 				fmt.Println("No se encontro el producto a actualizar")
 
 				break
@@ -151,8 +151,6 @@ func main() {
 			fmt.Println("Ingrese las unidades existentes")
 			fmt.Print(">")
 			fmt.Scan(&editProduct.unidades)
-
-			fmt.Println(listadoAlmacenes[numAlmacen].actualizarProducto(editProduct))
 
 		case 5:
 			var (
@@ -178,13 +176,9 @@ func main() {
 				break
 			}
 
-			if !listadoAlmacenes[numAlmacen].eliminarProducto(eliminarNombre, eliminarMarca) {
+			if exist := listadoAlmacenes[numAlmacen].eliminarProducto(eliminarNombre, eliminarMarca); !exist {
 				fmt.Println("Producto a eliminar, no encontrado")
-
-				break
 			}
-
-			fmt.Println(listadoAlmacenes[numAlmacen].eliminarProducto(eliminarNombre, eliminarMarca))
 
 		case 6:
 			listadoAlmacenes = append(listadoAlmacenes, Almacen{})
