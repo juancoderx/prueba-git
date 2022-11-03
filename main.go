@@ -124,6 +124,10 @@ func main() {
 			fmt.Print(">")
 			fmt.Scan(&editProduct.nombre)
 
+			fmt.Println("Marca del producto")
+			fmt.Print(">")
+			fmt.Scan(&editProduct.marca)
+
 			fmt.Println("¿En cual almancen esta el producto?")
 			fmt.Print(">")
 			fmt.Scan(&numAlmacen)
@@ -140,10 +144,6 @@ func main() {
 				break
 			}
 
-			fmt.Println("Ingrese marca")
-			fmt.Print(">")
-			fmt.Scan(&editProduct.marca)
-
 			fmt.Println("Ingrese nuevo precio")
 			fmt.Print(">")
 			fmt.Scan(&editProduct.precio)
@@ -151,6 +151,8 @@ func main() {
 			fmt.Println("Ingrese las unidades existentes")
 			fmt.Print(">")
 			fmt.Scan(&editProduct.unidades)
+
+			listadoAlmacenes[numAlmacen].actualizarProducto(editProduct)
 
 		case 5:
 			var (
