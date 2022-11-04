@@ -12,5 +12,6 @@ func (a Almacen) buscarProducto(buscadorProducto string) (productos []Producto) 
 			productos = append(productos, a[i])
 		}
 	}
+
 	return productos
 }

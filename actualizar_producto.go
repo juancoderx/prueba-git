@@ -9,5 +9,6 @@ func (a Almacen) actualizarProducto(p Producto) (exist bool) {
 
 		}
 	}
+
 	return exist
 }

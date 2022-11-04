@@ -138,12 +138,6 @@ func main() {
 				break
 			}
 
-			if exist := listadoAlmacenes[numAlmacen].actualizarProducto(editProduct); !exist {
-				fmt.Println("No se encontro el producto a actualizar")
-
-				break
-			}
-
 			fmt.Println("Ingrese nuevo precio")
 			fmt.Print(">")
 			fmt.Scan(&editProduct.precio)
@@ -152,7 +146,9 @@ func main() {
 			fmt.Print(">")
 			fmt.Scan(&editProduct.unidades)
 
-			listadoAlmacenes[numAlmacen].actualizarProducto(editProduct)
+			if exist := listadoAlmacenes[numAlmacen].actualizarProducto(editProduct); !exist {
+				fmt.Println("No se encontro el producto a actualizar")
+			}
 
 		case 5:
 			var (
