@@ -6,7 +6,6 @@ func (a Almacen) actualizarProducto(p Producto) (exist bool) {
 			exist = true
 
 			a[i] = p
-
 		}
 	}
 

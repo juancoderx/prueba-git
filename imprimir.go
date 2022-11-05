@@ -23,5 +23,6 @@ func (a Almacen) presentacion() (presenAlmacen string) {
 		presenAlmacen += "-------------------" + "\n"
 
 	}
+
 	return presenAlmacen
 }
