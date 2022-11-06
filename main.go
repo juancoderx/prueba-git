@@ -195,6 +195,12 @@ func main() {
 			fmt.Print(">")
 			fmt.Scan(&numAlmacen)
 
+			if numAlmacen >= len(listadoAlmacenes) {
+				fmt.Println("Numero de almacen inexistente")
+
+				break
+			}
+
 			infoProducto := listadoAlmacenes[numAlmacen].buscadorProducto(buscadorProducto)
 
 			if infoProducto == nil {
