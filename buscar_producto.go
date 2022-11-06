@@ -26,5 +26,6 @@ func (a Almacen) buscadorProducto(buscadorProducto string) (productos *Producto)
 			return productos
 		}
 	}
+
 	return productos
 }
