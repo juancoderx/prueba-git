@@ -21,7 +21,6 @@ func (a Almacen) presentacion() (presenAlmacen string) {
 	for i := 0; i < len(a); i++ {
 		presenAlmacen += a[i].presentacion()
 		presenAlmacen += "-------------------" + "\n"
-
 	}
 
 	return presenAlmacen
