@@ -5,6 +5,28 @@ import (
 	"strconv"
 )
 
+type option uint8
+
+const (
+	menuOption1 option = iota + 1
+	menuOption2
+	menuOption3
+	menuOption4
+	menuOption5
+	menuOption6
+	menuOption7
+)
+
+const (
+	ingresarProducto int = iota + 1
+	imprimirAlmacen
+	buscarProducto
+	actualizarProducto
+	eliminarProducto
+	crearInventario
+	buscarProducto_Puntero
+)
+
 func main() {
 	var listadoAlmacenes []Almacen
 
@@ -14,19 +36,19 @@ func main() {
 		fmt.Println("Bienvenido a Almacen")
 		fmt.Println(listadoAlmacenes)
 
-		fmt.Println("1.Ingresar producto")
-		fmt.Println("2.Imprimir Almacen")
-		fmt.Println("3.Buscar producto")
-		fmt.Println("4.Actualizar producto")
-		fmt.Println("5.Eliminar producto")
-		fmt.Println("6.Crear inventario")
-		fmt.Println("7.buscarProducto(Puntero)")
+		fmt.Println(menuOption1, "Ingresar producto")
+		fmt.Println(menuOption2, "Imprimir Almacen")
+		fmt.Println(menuOption3, "Buscar producto")
+		fmt.Println(menuOption4, "Actualizar producto")
+		fmt.Println(menuOption5, "Eliminar producto")
+		fmt.Println(menuOption6, "Crear inventario")
+		fmt.Println(menuOption7, "BuscarProducto(Puntero)")
 
 		fmt.Print(">")
 		fmt.Scan(&eleccion)
 
 		switch eleccion {
-		case 1:
+		case ingresarProducto:
 			var ingresarProducto Producto
 
 			fmt.Println("Ingrese el Nombre del Producto")
@@ -68,7 +90,7 @@ func main() {
 
 			listadoAlmacenes[numAlmacen].agregarProductos(ingresarProducto)
 
-		case 2:
+		case imprimirAlmacen:
 			var numAlmacen int
 
 			fmt.Println("Ingrese el numero del almacen a buscar")
@@ -83,7 +105,7 @@ func main() {
 
 			fmt.Println(listadoAlmacenes[numAlmacen].presentacion())
 
-		case 3:
+		case buscarProducto:
 			var (
 				searchProduct string
 				numAlmacen    int
@@ -115,19 +137,19 @@ func main() {
 				fmt.Println(infoProducto[i].presentacion())
 			}
 
-		case 4:
+		case actualizarProducto:
 			var (
-				editProduct Producto
-				numAlmacen  int
+				updateProduct Producto
+				numAlmacen    int
 			)
 
 			fmt.Println("Producto a actualizar")
 			fmt.Print(">")
-			fmt.Scan(&editProduct.nombre)
+			fmt.Scan(&updateProduct.nombre)
 
 			fmt.Println("Marca del producto")
 			fmt.Print(">")
-			fmt.Scan(&editProduct.marca)
+			fmt.Scan(&updateProduct.marca)
 
 			fmt.Println("¿En cual almancen esta el producto?")
 			fmt.Print(">")
@@ -141,17 +163,17 @@ func main() {
 
 			fmt.Println("Ingrese nuevo precio")
 			fmt.Print(">")
-			fmt.Scan(&editProduct.precio)
+			fmt.Scan(&updateProduct.precio)
 
 			fmt.Println("Ingrese las unidades existentes")
 			fmt.Print(">")
-			fmt.Scan(&editProduct.unidades)
+			fmt.Scan(&updateProduct.unidades)
 
-			if exist := listadoAlmacenes[numAlmacen].actualizarProducto(editProduct); !exist {
+			if exist := listadoAlmacenes[numAlmacen].actualizarProducto(updateProduct); !exist {
 				fmt.Println("No se encontro el producto a actualizar")
 			}
 
-		case 5:
+		case eliminarProducto:
 			var (
 				eliminarNombre, eliminarMarca string
 				numAlmacen                    int
@@ -179,10 +201,10 @@ func main() {
 				fmt.Println("Producto a eliminar, no encontrado")
 			}
 
-		case 6:
+		case crearInventario:
 			listadoAlmacenes = append(listadoAlmacenes, Almacen{})
 
-		case 7:
+		case buscarProducto_Puntero:
 			var (
 				buscadorProducto string
 				numAlmacen       int
