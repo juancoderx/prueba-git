@@ -27,13 +27,13 @@ func main() {
 		fmt.Println("Bienvenido a Almacen")
 		fmt.Println(listadoAlmacenes)
 
-		fmt.Println(opcionIngresarProducto, "Ingresar producto")
-		fmt.Println(opcionImprimirAlmacen, "Imprimir Almacen")
-		fmt.Println(opcionBuscarProducto, "Buscar producto")
-		fmt.Println(opcionActualizarProducto, "Actualizar producto")
-		fmt.Println(opcionEliminarProducto, "Eliminar producto")
-		fmt.Println(opcionCrearInventario, "Crear inventario")
-		fmt.Println(opcionBuscarProductoPuntero, "BuscarProducto(Puntero)")
+		fmt.Println(opcionIngresarProducto, ".Ingresar producto")
+		fmt.Println(opcionImprimirAlmacen, ".Imprimir Almacen")
+		fmt.Println(opcionBuscarProducto, ".Buscar producto")
+		fmt.Println(opcionActualizarProducto, ".Actualizar producto")
+		fmt.Println(opcionEliminarProducto, ".Eliminar producto")
+		fmt.Println(opcionCrearInventario, ".Crear inventario")
+		fmt.Println(opcionBuscarProductoPuntero, ".BuscarProducto(Puntero)")
 
 		fmt.Print(">")
 		fmt.Scan(&eleccion)
@@ -57,6 +57,14 @@ func main() {
 			fmt.Println("¿Cuantas unidades va a ingresar del Producto?")
 			fmt.Print(">")
 			fmt.Scan(&ingresarProducto.unidades)
+
+			if len(listadoAlmacenes) == 0 {
+				listadoAlmacenes = append(listadoAlmacenes, Almacen{})
+
+				listadoAlmacenes[0].agregarProductos(ingresarProducto)
+
+				break
+			}
 
 			dispAlmacen := "Almacenes: "
 			for i := 0; i < len(listadoAlmacenes); i++ {
