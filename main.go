@@ -5,50 +5,41 @@ import (
 	"strconv"
 )
 
-type option uint8
+type option int8
 
 const (
-	menuOption1 option = iota + 1
-	menuOption2
-	menuOption3
-	menuOption4
-	menuOption5
-	menuOption6
-	menuOption7
-)
-
-const (
-	ingresarProducto int = iota + 1
-	imprimirAlmacen
-	buscarProducto
-	actualizarProducto
-	eliminarProducto
-	crearInventario
-	buscarProducto_Puntero
+	opcionIngresarProducto option = iota + 1
+	opcionImprimirAlmacen
+	opcionBuscarProducto
+	opcionActualizarProducto
+	opcionEliminarProducto
+	opcionCrearInventario
+	opcionBuscarProductoPuntero
 )
 
 func main() {
-	var listadoAlmacenes []Almacen
-
-	eleccion := 1
+	var (
+		listadoAlmacenes []Almacen
+		eleccion         option = 1
+	)
 
 	for eleccion >= 1 {
 		fmt.Println("Bienvenido a Almacen")
 		fmt.Println(listadoAlmacenes)
 
-		fmt.Println(menuOption1, "Ingresar producto")
-		fmt.Println(menuOption2, "Imprimir Almacen")
-		fmt.Println(menuOption3, "Buscar producto")
-		fmt.Println(menuOption4, "Actualizar producto")
-		fmt.Println(menuOption5, "Eliminar producto")
-		fmt.Println(menuOption6, "Crear inventario")
-		fmt.Println(menuOption7, "BuscarProducto(Puntero)")
+		fmt.Println(opcionIngresarProducto, "Ingresar producto")
+		fmt.Println(opcionImprimirAlmacen, "Imprimir Almacen")
+		fmt.Println(opcionBuscarProducto, "Buscar producto")
+		fmt.Println(opcionActualizarProducto, "Actualizar producto")
+		fmt.Println(opcionEliminarProducto, "Eliminar producto")
+		fmt.Println(opcionCrearInventario, "Crear inventario")
+		fmt.Println(opcionBuscarProductoPuntero, "BuscarProducto(Puntero)")
 
 		fmt.Print(">")
 		fmt.Scan(&eleccion)
 
 		switch eleccion {
-		case ingresarProducto:
+		case opcionIngresarProducto:
 			var ingresarProducto Producto
 
 			fmt.Println("Ingrese el Nombre del Producto")
@@ -90,7 +81,7 @@ func main() {
 
 			listadoAlmacenes[numAlmacen].agregarProductos(ingresarProducto)
 
-		case imprimirAlmacen:
+		case opcionImprimirAlmacen:
 			var numAlmacen int
 
 			fmt.Println("Ingrese el numero del almacen a buscar")
@@ -105,7 +96,7 @@ func main() {
 
 			fmt.Println(listadoAlmacenes[numAlmacen].presentacion())
 
-		case buscarProducto:
+		case opcionBuscarProducto:
 			var (
 				searchProduct string
 				numAlmacen    int
@@ -137,7 +128,7 @@ func main() {
 				fmt.Println(infoProducto[i].presentacion())
 			}
 
-		case actualizarProducto:
+		case opcionActualizarProducto:
 			var (
 				updateProduct Producto
 				numAlmacen    int
@@ -173,7 +164,7 @@ func main() {
 				fmt.Println("No se encontro el producto a actualizar")
 			}
 
-		case eliminarProducto:
+		case opcionEliminarProducto:
 			var (
 				eliminarNombre, eliminarMarca string
 				numAlmacen                    int
@@ -201,10 +192,10 @@ func main() {
 				fmt.Println("Producto a eliminar, no encontrado")
 			}
 
-		case crearInventario:
+		case opcionCrearInventario:
 			listadoAlmacenes = append(listadoAlmacenes, Almacen{})
 
-		case buscarProducto_Puntero:
+		case opcionBuscarProductoPuntero:
 			var (
 				buscadorProducto string
 				numAlmacen       int
