@@ -27,13 +27,13 @@ func main() {
 		fmt.Println("Bienvenido a Almacen")
 		fmt.Println(listadoAlmacenes)
 
-		fmt.Printf("%v.Ingresar producto \n", opcionIngresarProducto)
-		fmt.Printf("%v.Imprimir almancen \n", opcionImprimirAlmacen)
-		fmt.Printf("%v.Buscar producto \n", opcionBuscarProducto)
-		fmt.Printf("%v.Actualizar producto \n", opcionActualizarProducto)
-		fmt.Printf("%v.Eliminar producto \n", opcionEliminarProducto)
-		fmt.Printf("%v.Crear inventario \n", opcionCrearInventario)
-		fmt.Printf("%v.Buscar producto(Puntero) \n", opcionBuscarProductoPuntero)
+		fmt.Printf("%d. Ingresar producto \n", opcionIngresarProducto)
+		fmt.Printf("%d. Imprimir almancen \n", opcionImprimirAlmacen)
+		fmt.Printf("%d. Buscar producto \n", opcionBuscarProducto)
+		fmt.Printf("%d. Actualizar producto \n", opcionActualizarProducto)
+		fmt.Printf("%d. Eliminar producto \n", opcionEliminarProducto)
+		fmt.Printf("%d. Crear inventario \n", opcionCrearInventario)
+		fmt.Printf("%d. Buscar producto(Puntero) \n", opcionBuscarProductoPuntero)
 
 		fmt.Print(">")
 		fmt.Scan(&eleccion)
@@ -90,13 +90,14 @@ func main() {
 			listadoAlmacenes[numAlmacen].agregarProductos(ingresarProducto)
 
 		case opcionImprimirAlmacen:
-			var numAlmacen int
 
 			if len(listadoAlmacenes) == 0 {
 				fmt.Println("No hay almacenes para imprimir")
 
 				break
 			}
+
+			var numAlmacen int
 
 			fmt.Println("Ingrese el numero del almacen a buscar")
 			fmt.Print(">")
@@ -111,10 +112,6 @@ func main() {
 			fmt.Println(listadoAlmacenes[numAlmacen].presentacion())
 
 		case opcionBuscarProducto:
-			var (
-				searchProduct string
-				numAlmacen    int
-			)
 
 			if len(listadoAlmacenes) == 0 {
 				fmt.Println("No hay almacenes donde buscar")
@@ -122,9 +119,13 @@ func main() {
 				break
 			}
 
+			var searchProduct string
+
 			fmt.Println("Ingrese el nombre del producto")
 			fmt.Print(">")
 			fmt.Scan(&searchProduct)
+
+			var numAlmacen int
 
 			fmt.Println("¿En cual almancen esta el producto?")
 			fmt.Print(">")
@@ -149,16 +150,14 @@ func main() {
 			}
 
 		case opcionActualizarProducto:
-			var (
-				updateProduct Producto
-				numAlmacen    int
-			)
 
 			if len(listadoAlmacenes) == 0 {
 				fmt.Println("No hay almacenes para actualizar")
 
 				break
 			}
+
+			var updateProduct Producto
 
 			fmt.Println("Producto a actualizar")
 			fmt.Print(">")
@@ -167,6 +166,8 @@ func main() {
 			fmt.Println("Marca del producto")
 			fmt.Print(">")
 			fmt.Scan(&updateProduct.marca)
+
+			var numAlmacen int
 
 			fmt.Println("¿En cual almancen esta el producto?")
 			fmt.Print(">")
@@ -191,16 +192,14 @@ func main() {
 			}
 
 		case opcionEliminarProducto:
-			var (
-				eliminarNombre, eliminarMarca string
-				numAlmacen                    int
-			)
 
 			if len(listadoAlmacenes) == 0 {
 				fmt.Println("No hay almacenes para eliminar")
 
 				break
 			}
+
+			var eliminarNombre, eliminarMarca string
 
 			fmt.Println("Indique el nombre del producto a eliminar")
 			fmt.Print(">")
@@ -209,6 +208,8 @@ func main() {
 			fmt.Println("Indique la marca del producto a eliminar")
 			fmt.Print(">")
 			fmt.Scan(&eliminarMarca)
+
+			var numAlmacen int
 
 			fmt.Println("¿En cual almancen esta el producto?")
 			fmt.Print(">")
@@ -228,10 +229,6 @@ func main() {
 			listadoAlmacenes = append(listadoAlmacenes, Almacen{})
 
 		case opcionBuscarProductoPuntero:
-			var (
-				buscadorProducto string
-				numAlmacen       int
-			)
 
 			if len(listadoAlmacenes) == 0 {
 				fmt.Println("No hay almacenes donde buscar")
@@ -239,9 +236,13 @@ func main() {
 				break
 			}
 
+			var buscadorProducto string
+
 			fmt.Println("Ingrese producto")
 			fmt.Print(">")
 			fmt.Scan(&buscadorProducto)
+
+			var numAlmacen int
 
 			fmt.Println("Ingrese el almancen donde esta el producto")
 			fmt.Print(">")
