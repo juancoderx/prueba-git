@@ -27,13 +27,13 @@ func main() {
 		fmt.Println("Bienvenido a Almacen")
 		fmt.Println(listadoAlmacenes)
 
-		fmt.Println(opcionIngresarProducto, ".Ingresar producto")
-		fmt.Println(opcionImprimirAlmacen, ".Imprimir Almacen")
-		fmt.Println(opcionBuscarProducto, ".Buscar producto")
-		fmt.Println(opcionActualizarProducto, ".Actualizar producto")
-		fmt.Println(opcionEliminarProducto, ".Eliminar producto")
-		fmt.Println(opcionCrearInventario, ".Crear inventario")
-		fmt.Println(opcionBuscarProductoPuntero, ".BuscarProducto(Puntero)")
+		fmt.Printf("%v.Ingresar producto \n", opcionIngresarProducto)
+		fmt.Printf("%v.Imprimir almancen \n", opcionImprimirAlmacen)
+		fmt.Printf("%v.Buscar producto \n", opcionBuscarProducto)
+		fmt.Printf("%v.Actualizar producto \n", opcionActualizarProducto)
+		fmt.Printf("%v.Eliminar producto \n", opcionEliminarProducto)
+		fmt.Printf("%v.Crear inventario \n", opcionCrearInventario)
+		fmt.Printf("%v.Buscar producto(Puntero) \n", opcionBuscarProductoPuntero)
 
 		fmt.Print(">")
 		fmt.Scan(&eleccion)
@@ -92,6 +92,12 @@ func main() {
 		case opcionImprimirAlmacen:
 			var numAlmacen int
 
+			if len(listadoAlmacenes) == 0 {
+				fmt.Println("No hay almacenes para imprimir")
+
+				break
+			}
+
 			fmt.Println("Ingrese el numero del almacen a buscar")
 			fmt.Print(">")
 			fmt.Scan(&numAlmacen)
@@ -109,6 +115,12 @@ func main() {
 				searchProduct string
 				numAlmacen    int
 			)
+
+			if len(listadoAlmacenes) == 0 {
+				fmt.Println("No hay almacenes donde buscar")
+
+				break
+			}
 
 			fmt.Println("Ingrese el nombre del producto")
 			fmt.Print(">")
@@ -141,6 +153,12 @@ func main() {
 				updateProduct Producto
 				numAlmacen    int
 			)
+
+			if len(listadoAlmacenes) == 0 {
+				fmt.Println("No hay almacenes para actualizar")
+
+				break
+			}
 
 			fmt.Println("Producto a actualizar")
 			fmt.Print(">")
@@ -178,6 +196,12 @@ func main() {
 				numAlmacen                    int
 			)
 
+			if len(listadoAlmacenes) == 0 {
+				fmt.Println("No hay almacenes para eliminar")
+
+				break
+			}
+
 			fmt.Println("Indique el nombre del producto a eliminar")
 			fmt.Print(">")
 			fmt.Scan(&eliminarNombre)
@@ -208,6 +232,13 @@ func main() {
 				buscadorProducto string
 				numAlmacen       int
 			)
+
+			if len(listadoAlmacenes) == 0 {
+				fmt.Println("No hay almacenes donde buscar")
+
+				break
+			}
+
 			fmt.Println("Ingrese producto")
 			fmt.Print(">")
 			fmt.Scan(&buscadorProducto)
