@@ -7,6 +7,33 @@ import (
 
 type option int8
 
+func (o option) String() string {
+	switch o {
+	case opcionIngresarProducto:
+		return fmt.Sprintf("%d. %v", opcionIngresarProducto, "Ingresar Producto")
+
+	case opcionImprimirAlmacen:
+		return fmt.Sprintf("%d. %v", opcionImprimirAlmacen, "Imprimir Almacen")
+
+	case opcionBuscarProducto:
+		return fmt.Sprintf("%d. %v", opcionBuscarProducto, "Buscar Producto")
+
+	case opcionActualizarProducto:
+		return fmt.Sprintf("%d. %v", opcionActualizarProducto, "Actualizar Producto")
+
+	case opcionEliminarProducto:
+		return fmt.Sprintf("%d. %v", opcionEliminarProducto, "Eliminar Producto")
+
+	case opcionCrearInventario:
+		return fmt.Sprintf("%d. %v", opcionCrearInventario, "Crear Inventario")
+
+	case opcionBuscarProductoPuntero:
+		return fmt.Sprintf("%d. %v", opcionBuscarProductoPuntero, "Buscar Producto (Puntero)")
+	}
+
+	return ""
+}
+
 const (
 	opcionIngresarProducto option = iota + 1
 	opcionImprimirAlmacen
@@ -27,13 +54,12 @@ func main() {
 		fmt.Println("Bienvenido a Almacen")
 		fmt.Println(listadoAlmacenes)
 
-		fmt.Printf("%d. Ingresar producto \n", opcionIngresarProducto)
-		fmt.Printf("%d. Imprimir almancen \n", opcionImprimirAlmacen)
-		fmt.Printf("%d. Buscar producto \n", opcionBuscarProducto)
-		fmt.Printf("%d. Actualizar producto \n", opcionActualizarProducto)
-		fmt.Printf("%d. Eliminar producto \n", opcionEliminarProducto)
-		fmt.Printf("%d. Crear inventario \n", opcionCrearInventario)
-		fmt.Printf("%d. Buscar producto(Puntero) \n", opcionBuscarProductoPuntero)
+		fmt.Println(opcionIngresarProducto)
+		fmt.Println(opcionBuscarProducto)
+		fmt.Println(opcionActualizarProducto)
+		fmt.Println(opcionEliminarProducto)
+		fmt.Println(opcionCrearInventario)
+		fmt.Println(opcionBuscarProductoPuntero)
 
 		fmt.Print(">")
 		fmt.Scan(&eleccion)
